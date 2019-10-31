@@ -5,7 +5,7 @@ const app = express()
 app.use(express.static('public'))
 
 const multer = require('multer')
-const target = multer({ dest: 'ups/' })
+const target = multer({ dest: 'uploaded/' })
 
 const fileUpload = require('express-fileupload')
 app.use(fileUpload())
