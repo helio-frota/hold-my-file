@@ -4,7 +4,7 @@ app.use(express.static('public'))
 
 const multer = require('multer')
 
-const target = multer({ dest: 'ups/' })
+const target = multer({ dest: 'uploaded/' })
 
 app.post('/up', target.single('file'), (req, res) => {
   res.send('I successfully held your file.')
@@ -12,7 +12,7 @@ app.post('/up', target.single('file'), (req, res) => {
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'ups/')
+    cb(null, 'uploaded/')
   },
   filename: (req, file, cb) => {
     cb(null, file.fieldname + '-' + Date.now())
