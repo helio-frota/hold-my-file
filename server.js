@@ -4,14 +4,12 @@ app.use(express.static('public'))
 
 const multer = require('multer')
 
-// 1 
 const target = multer({ dest: 'ups/' })
 
 app.post('/up', target.single('file'), (req, res) => {
   res.send('I successfully held your file.')
 })
 
-// 2
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'ups/')
